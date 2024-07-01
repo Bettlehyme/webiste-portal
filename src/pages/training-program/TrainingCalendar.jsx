@@ -48,10 +48,30 @@ import {
 import { Input } from "@/components/ui/input"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
-
+import Calendar from "../component/Calendar"
+import EventList from "../component/EventList"
+import { useState } from "react"
+import { addMonths, subMonths } from 'date-fns';
 
 export default function TrainingCalendar() {
+    const events = [
+        { date: '2024-06-24T07:00:00', time: '07:00', title: 'GA Weekly Meeting' },
+        { date: '2024-06-25T09:00:00', time: '09:00', title: 'Pak Jimmy Meeting' },
+        // Add more events here...
+    ];
+    const [currentMonth, setCurrentMonth] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const handleDateClick = (date) => {
+        setSelectedDate(date);
+    };
 
+    const handlePrevMonth = () => {
+        setCurrentMonth((prevMonth) => subMonths(prevMonth, 1));
+    };
+
+    const handleNextMonth = () => {
+        setCurrentMonth((prevMonth) => addMonths(prevMonth, 1));
+    };
     return (
         <>
             <Card className="overflow-hidden h-96 ">
@@ -105,13 +125,23 @@ export default function TrainingCalendar() {
                             </div>
                         </div>
 
-                        <Card x-chunk="dashboard-05-chunk-3">
-                            
-                            
-                            <CardContent>
-                                {/* Excel/pdf */}
-                            </CardContent>
-                        </Card>
+                    
+                                <div className="flex flex-col lg:flex-row">
+                                    <div className="w-full lg:w-1/2 p-4">
+                                        <Calendar
+                                            currentMonth={currentMonth}
+                                            onDateClick={handleDateClick}
+                                            onPrevMonth={handlePrevMonth}
+                                            onNextMonth={handleNextMonth}
+                                            selectedDate={selectedDate}
+                                            
+                                        />
+                                    </div>
+                                    <div className="w-full lg:w-3/4 p-4">
+                                        <EventList events={events} selectedDate={selectedDate} />
+                                    </div>
+                                </div>
+                     
 
 
                     </CardContent>

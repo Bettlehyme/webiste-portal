@@ -16,32 +16,56 @@ import EventGallery from './pages/event-gallery/EventGallery'
 import Library from './pages/other-apps/Library'
 import DLP from './pages/other-apps/DLP'
 import Contact from './pages/contact/Contact'
+import AdminLayout from './pages/admin/AdminLayout'
+import MainLayout from './pages/MainLayout'
+import Dashboard from './pages/admin/dashboard/Dashboard'
+import Posts from './pages/admin/dashboard/Posts'
+import { Login } from './pages/admin/login/Login'
+import Events from './pages/admin/dashboard/Events'
+import Trainings from './pages/admin/dashboard/Trainings'
+import Facilities from './pages/admin/dashboard/Facilities'
+
 function App() {
 
-
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
-    <div className="flex min-h-screen w-full flex-col">
-      <BrowserRouter>
-        <Navbar />
-        <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about/our-teams' element={<OurTeams />} />
-            <Route path='/about/vision-mission-history' element={<VMHistory />} />
-            <Route path='/facilities/building' element={<Building />} />
-            <Route path='/facilities/sfotc' element={<SFOTC />} />
-            <Route path='/facilities/tc-ptsi' element={<TC />} />
-            <Route path='/training-program/our-training-program' element={<OurTraining />} />
-            <Route path='/training-program/training-calendar' element={<TrainingCalendar />} />
-            <Route path='/event-gallery' element={<EventGallery />} />
-            <Route path='/other-apps/library' element={<Library />} />
-            <Route path='/other-apps/dlp' element={<DLP />} />
-            <Route path='/contact' element={<Contact />} />
 
-          </Routes>
-        </main>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+
+      <Routes>
+
+        <Route path='/' element={<MainLayout />} >
+          <Route path='/' element={<Home />} />
+          <Route path='/about/our-teams' element={<OurTeams />} />
+          <Route path='/about/vision-mission-history' element={<VMHistory />} />
+          <Route path='/facilities/building' element={<Building />} />
+          <Route path='/facilities/sfotc' element={<SFOTC />} />
+          <Route path='/facilities/tc-ptsi' element={<TC />} />
+          <Route path='/training-program/our-training-program' element={<OurTraining />} />
+          <Route path='/training-program/training-calendar' element={<TrainingCalendar />} />
+          <Route path='/event-gallery' element={<EventGallery />} />
+          <Route path='/other-apps/library' element={<Library />} />
+          <Route path='/other-apps/dlp' element={<DLP />} />
+          <Route path='/contact' element={<Contact />} />
+        </Route>
+
+    
+
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/posts" element={<Posts />} />
+          <Route path="/admin/events" element={<Events />} />
+          <Route path="/admin/trainings" element={<Trainings />} />
+          <Route path="/admin/facilities" element={<Facilities />} />
+
+          {/* <Route path="settings" element={<Settings />} /> */}
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+    </BrowserRouter>
+
 
 
   )

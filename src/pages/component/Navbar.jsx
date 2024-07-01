@@ -15,6 +15,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 
 function Navbar() {
+
+    function handleClick() {
+        window.location.replace("/")
+      }
     return (
 
         <header className="sticky top-0 z-10 backdrop-blur-md bg-white/50 flex flex-wrap h-16 lg:justify-center content-center border-b bg-background px-4 md:px-6">
@@ -88,7 +92,7 @@ function Navbar() {
                         </a>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="start">
-                        <DropdownMenuItem><Link to="/other-apps/library">Library</Link></DropdownMenuItem>
+                        <DropdownMenuItem> <a  target='_blank'  rel='noopener noreferrer' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >Library</a></DropdownMenuItem>
                         <DropdownMenuItem><Link to="/other-apps/dlp">DLP Booking System</Link></DropdownMenuItem>
                         <DropdownMenuSeparator />
 
@@ -162,7 +166,7 @@ function Navbar() {
                             <AccordionItem value="item-4" className="border-none">
                                 <AccordionTrigger className="hover:no-underline ">Other Apps</AccordionTrigger>
                                 <AccordionContent className="flex flex-col gap-3 text-lg pl-4 text-black/70">
-                                    <Link to="/other-apps/library">Library</Link>
+                                    <a  target='_blank'  rel='noopener noreferrer' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" >Library</a>
                                     <Link to="/other-apps/dlp">DLP Booking System</Link>
                                 </AccordionContent>
                             </AccordionItem>

@@ -1,52 +1,9 @@
-import { Button } from "@/components/ui/button"
-import {
-    ListFilter,
-    Search,
-} from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
+  
 } from "@/components/ui/card"
-import {
-    DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from "@/components/ui/pagination"
-
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
-import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from "@/components/ui/tabs"
-import { Input } from "@/components/ui/input"
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
@@ -66,383 +23,197 @@ export default function Building() {
                 <p className="text-xl w-3/4 text-center"> Building description lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-                <Tabs defaultValue="info" className="w-full flex flex-col items-center">
-                    <TabsList className="grid w-60 rounded-lg grid-cols-2">
-                        <TabsTrigger value="info" className="rounded-lg">Info</TabsTrigger>
-                        <TabsTrigger value="galery" className="rounded-lg">Gallery</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="info" className="w-full mt-10">
-                        <div className=" w-full gap-20 mt-5">
-                            <div className=" w-full flex gap-20 ">
-                                <div className="w-fit">
-                                    <Carousel className="w-full max-w-xs">
-                                        <CarouselContent>
-                                            {Array.from({ length: 5 }).map((_, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className="p-1">
-                                                        <Card>
-                                                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                                <span className="text-4xl font-semibold">{index + 1}</span>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                        <CarouselPrevious />
-                                        <CarouselNext />
-                                    </Carousel>
-                                </div>
-                                <div className="flex flex-col items-left">
-                                    <Label className="text-2xl">Large Room</Label>
-                                    <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                            </div>
-                            <div className=" w-full flex gap-20 mt-5">
-                                <div className="flex flex-col items-left">
-                                    <Label className="text-2xl">Medium Room</Label>
-                                    <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                                <div className="w-fit">
-                                    <Carousel className="w-full max-w-xs">
-                                        <CarouselContent>
-                                            {Array.from({ length: 5 }).map((_, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className="p-1">
-                                                        <Card>
-                                                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                                <span className="text-4xl font-semibold">{index + 1}</span>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                        <CarouselPrevious />
-                                        <CarouselNext />
-                                    </Carousel>
-                                </div>
-
-                            </div>
-                            <div className=" w-full flex gap-20 ">
-                                <div className="w-fit">
-                                    <Carousel className="w-full max-w-xs">
-                                        <CarouselContent>
-                                            {Array.from({ length: 5 }).map((_, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className="p-1">
-                                                        <Card>
-                                                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                                <span className="text-4xl font-semibold">{index + 1}</span>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                        <CarouselPrevious />
-                                        <CarouselNext />
-                                    </Carousel>
-                                </div>
-                                <div className="flex flex-col items-left">
-                                    <Label className="text-2xl">Small Room</Label>
-                                    <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                            </div>
-                            <div className=" w-full flex gap-20 mt-5">
-                                <div className="flex flex-col items-left">
-                                    <Label className="text-2xl">Simulator Room</Label>
-                                    <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                                <div className="w-fit">
-                                    <Carousel className="w-full max-w-xs">
-                                        <CarouselContent>
-                                            {Array.from({ length: 5 }).map((_, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className="p-1">
-                                                        <Card>
-                                                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                                <span className="text-4xl font-semibold">{index + 1}</span>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                        <CarouselPrevious />
-                                        <CarouselNext />
-                                    </Carousel>
-                                </div>
-
-                            </div>
-                            <div className=" w-full flex gap-20 ">
-                                <div className="w-fit">
-                                    <Carousel className="w-full max-w-xs">
-                                        <CarouselContent>
-                                            {Array.from({ length: 5 }).map((_, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className="p-1">
-                                                        <Card>
-                                                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                                <span className="text-4xl font-semibold">{index + 1}</span>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                        <CarouselPrevious />
-                                        <CarouselNext />
-                                    </Carousel>
-                                </div>
-                                <div className="flex flex-col items-left">
-                                    <Label className="text-2xl">Assessment Room</Label>
-                                    <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                            </div>
-                            <div className=" w-full flex gap-20 mt-5">
-                                <div className="flex flex-col items-left">
-                                    <Label className="text-2xl">Public Facilities</Label>
-                                    <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum</p>
-                                </div>
-                                <div className="w-fit">
-                                    <Carousel className="w-full max-w-xs">
-                                        <CarouselContent>
-                                            {Array.from({ length: 5 }).map((_, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className="p-1">
-                                                        <Card>
-                                                            <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                                <span className="text-4xl font-semibold">{index + 1}</span>
-                                                            </CardContent>
-                                                        </Card>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                        <CarouselPrevious />
-                                        <CarouselNext />
-                                    </Carousel>
-                                </div>
-
-                            </div>
+                <div className=" w-full gap-20 mt-5">
+                    <div className=" w-full flex gap-20 ">
+                        <div className="w-fit">
+                            <Carousel className="w-full max-w-xs">
+                                <CarouselContent>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <CarouselItem key={index}>
+                                            <div className="p-1">
+                                                <Card>
+                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                                        <span className="text-4xl font-semibold">{index + 1}</span>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
                         </div>
-                    </TabsContent>
-                    <TabsContent value="galery" className="w-full mt-10">
-                        <div className="grid grid-cols-3">
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                            <div className="p-14">
-                                <Carousel className="w-full max-w-xs">
-                                    <CarouselContent>
-                                        {Array.from({ length: 5 }).map((_, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className="p-1">
-                                                    <Card>
-                                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                                            <span className="text-4xl font-semibold">{index + 1}</span>
-                                                        </CardContent>
-                                                    </Card>
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
+                        <div className="flex flex-col items-left">
+                            <Label className="text-2xl">Large Room</Label>
+                            <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est laborum</p>
                         </div>
-                    </TabsContent>
-                </Tabs>
+                    </div>
+                    <div className=" w-full flex gap-20 mt-5">
+                        <div className="flex flex-col items-left">
+                            <Label className="text-2xl">Medium Room</Label>
+                            <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                        <div className="w-fit">
+                            <Carousel className="w-full max-w-xs">
+                                <CarouselContent>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <CarouselItem key={index}>
+                                            <div className="p-1">
+                                                <Card>
+                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                                        <span className="text-4xl font-semibold">{index + 1}</span>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+                        </div>
 
+                    </div>
+                    <div className=" w-full flex gap-20 ">
+                        <div className="w-fit">
+                            <Carousel className="w-full max-w-xs">
+                                <CarouselContent>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <CarouselItem key={index}>
+                                            <div className="p-1">
+                                                <Card>
+                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                                        <span className="text-4xl font-semibold">{index + 1}</span>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+                        </div>
+                        <div className="flex flex-col items-left">
+                            <Label className="text-2xl">Small Room</Label>
+                            <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                    </div>
+                    <div className=" w-full flex gap-20 mt-5">
+                        <div className="flex flex-col items-left">
+                            <Label className="text-2xl">Simulator Room</Label>
+                            <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                        <div className="w-fit">
+                            <Carousel className="w-full max-w-xs">
+                                <CarouselContent>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <CarouselItem key={index}>
+                                            <div className="p-1">
+                                                <Card>
+                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                                        <span className="text-4xl font-semibold">{index + 1}</span>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+                        </div>
 
+                    </div>
+                    <div className=" w-full flex gap-20 ">
+                        <div className="w-fit">
+                            <Carousel className="w-full max-w-xs">
+                                <CarouselContent>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <CarouselItem key={index}>
+                                            <div className="p-1">
+                                                <Card>
+                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                                        <span className="text-4xl font-semibold">{index + 1}</span>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+                        </div>
+                        <div className="flex flex-col items-left">
+                            <Label className="text-2xl">Assessment Room</Label>
+                            <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                    </div>
+                    <div className=" w-full flex gap-20 mt-5">
+                        <div className="flex flex-col items-left">
+                            <Label className="text-2xl">Public Facilities</Label>
+                            <p className="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                        <div className="w-fit">
+                            <Carousel className="w-full max-w-xs">
+                                <CarouselContent>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <CarouselItem key={index}>
+                                            <div className="p-1">
+                                                <Card>
+                                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                                        <span className="text-4xl font-semibold">{index + 1}</span>
+                                                    </CardContent>
+                                                </Card>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+                        </div>
 
+                    </div>
+                </div>
             </div>
         </>
     )
