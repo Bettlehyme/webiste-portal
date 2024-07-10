@@ -91,6 +91,9 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 
 export default function Trainings() {
     const [content, setContent] = useState('');
+    const [objective, setObjective] = useState('');
+    const [methodology, setMethodology] = useState('');
+
     const [image, setImage] = useState(null);
     const [currentMonth, setCurrentMonth] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -189,10 +192,23 @@ export default function Trainings() {
                                     </div>
                                     <div className="grid grid-cols-4 items-center gap-2">
                                         <Label htmlFor="username" className="text-right">
-                                            Content
+                                            Program Objective
                                         </Label>
-                                        <ReactQuill className="col-span-3 h-56" theme="snow" value={content} onChange={setContent} />;
+                                        <ReactQuill className="col-span-3 h-20" theme="snow" value={objective} onChange={setObjective} />;
                                     </div>
+                                    <div className="grid grid-cols-4 items-center gap-2">
+                                        <Label htmlFor="username" className="text-right">
+                                            Program Content
+                                        </Label>
+                                        <ReactQuill className="col-span-3 h-20" theme="snow" value={content} onChange={setContent} />;
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-2">
+                                        <Label htmlFor="username" className="text-right">
+                                            Training Methodology
+                                        </Label>
+                                        <ReactQuill className="col-span-3 h-20" theme="snow" value={methodology} onChange={setMethodology} />;
+                                    </div>
+                                    
                                     <div className="grid grid-cols-4 items-center gap-2">
                                         <Label htmlFor="username" className="text-right" >
                                             Section
