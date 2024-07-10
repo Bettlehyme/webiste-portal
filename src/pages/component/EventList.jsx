@@ -25,13 +25,20 @@ const EventList = ({ events, selectedDate, currentMonth }) => {
             ? `Events for ${format(currentMonth, 'MMMM yyyy')}`
             : `Events for ${format(selectedDate, 'PPP')}`}
         </h2>
+        <div>
+          <Button className="mr-5"
+            onClick={() => setShowMonthlyEvents(false)}
 
-        <Button
-          onClick={() => setShowMonthlyEvents(!showMonthlyEvents)}
+          >
+            Daily
+          </Button>
+          <Button
+            onClick={() => setShowMonthlyEvents(true)}
 
-        >
-          {showMonthlyEvents ? 'Show Daily Events' : 'Show Monthly Events'}
-        </Button>
+          >
+            Monthly
+          </Button>
+        </div>
       </div>
       <div className='h-full pb-10 overflow-y-scroll'>
         <Fade direction='right' cascade damping={0.1}>
@@ -154,7 +161,7 @@ const EventList = ({ events, selectedDate, currentMonth }) => {
                   <DialogHeader>
                     <DialogTitle>{event.title}</DialogTitle>
                     <DialogDescription>
-                    {event.time}
+                      {event.time}
                     </DialogDescription>
                   </DialogHeader>
                   <div className="grid grid-cols-2 item-center gap-4 p-8">
@@ -234,7 +241,7 @@ const EventList = ({ events, selectedDate, currentMonth }) => {
                   <DialogFooter >
 
                     <DialogClose> <Button type="submit">Close</Button></DialogClose>
-                    
+
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
