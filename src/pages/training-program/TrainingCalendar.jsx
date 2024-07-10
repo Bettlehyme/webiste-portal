@@ -52,10 +52,14 @@ import Calendar from "../component/Calendar"
 import EventList from "../component/EventList"
 import { useState } from "react"
 import { addMonths, subMonths } from 'date-fns';
+import { Fade } from "react-awesome-reveal"
 
 export default function TrainingCalendar() {
     const events = [
         { date: '2024-06-24T07:00:00', time: '07:00', title: 'GA Weekly Meeting' },
+        { date: '2024-06-25T09:00:00', time: '09:00', title: 'Pak Jimmy Meeting' },
+        { date: '2024-06-25T09:00:00', time: '09:00', title: 'Pak Jimmy Meeting' },
+        { date: '2024-06-25T09:00:00', time: '09:00', title: 'Pak Jimmy Meeting' },
         { date: '2024-06-25T09:00:00', time: '09:00', title: 'Pak Jimmy Meeting' },
         // Add more events here...
     ];
@@ -74,12 +78,15 @@ export default function TrainingCalendar() {
     };
     return (
         <>
-            <Card className="overflow-hidden h-96 ">
-                <div className="overflow-hidden h-96 bg-[url('../home-img2.jpg')] bg-cover bg-center overflow-hidden transition ease-in-out hover:scale-105  ">
-                    {/* <b className="absolute inset-0">Breif Explenation</b> */}
+            <Fade direction="up" triggerOnce={true}>
+                <Card className="overflow-hidden h-96 ">
+                    <div className="overflow-hidden h-96 bg-[url('../home-img2.jpg')] bg-cover bg-center overflow-hidden transition ease-in-out hover:scale-105  ">
+                        {/* <b className="absolute inset-0">Breif Explenation</b> */}
 
-                </div>
-            </Card>
+                    </div>
+                </Card>
+            </Fade>
+            <Fade direction="up" triggerOnce={true}>
             <div className="grid grid-cols-2 p-10 gap-4">
 
                 <Card className="flex flex-col items-center  col-span-2">
@@ -125,28 +132,30 @@ export default function TrainingCalendar() {
                             </div>
                         </div>
 
-                    
-                                <div className="flex flex-col lg:flex-row">
-                                    <div className="w-full lg:w-1/2 p-4">
-                                        <Calendar
-                                            currentMonth={currentMonth}
-                                            onDateClick={handleDateClick}
-                                            onPrevMonth={handlePrevMonth}
-                                            onNextMonth={handleNextMonth}
-                                            selectedDate={selectedDate}
-                                            
-                                        />
-                                    </div>
-                                    <div className="w-full lg:w-3/4 p-4">
-                                        <EventList events={events} selectedDate={selectedDate} />
-                                    </div>
-                                </div>
-                     
+
+                        <div className="flex flex-col lg:flex-row">
+                            <div className="w-full lg:w-1/2 p-4">
+                                <Calendar
+                                    currentMonth={currentMonth}
+                                    onDateClick={handleDateClick}
+                                    onPrevMonth={handlePrevMonth}
+                                    onNextMonth={handleNextMonth}
+                                    selectedDate={selectedDate}
+                                    events={events}
+
+                                />
+                            </div>
+                            <div className="w-full lg:w-3/4 p-4">
+                                <EventList events={events} selectedDate={selectedDate} currentMonth={currentMonth} />
+                            </div>
+                        </div>
+
 
 
                     </CardContent>
                 </Card>
             </div>
+            </Fade>
         </>
     )
 }

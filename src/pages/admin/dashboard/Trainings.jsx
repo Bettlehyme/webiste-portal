@@ -87,6 +87,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import DatePicker from "@/pages/component/DatePicker";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Trainings() {
     const [content, setContent] = useState('');
@@ -247,7 +248,7 @@ export default function Trainings() {
                                     <TableHead className="hidden sm:table-cell">
                                         Target Participant
                                     </TableHead>
-                                    
+
                                     <TableHead className="text-right">Action</TableHead>
                                 </TableRow>
                             </TableHeader>
@@ -258,12 +259,12 @@ export default function Trainings() {
 
                                     </TableCell>
                                     <TableCell className="hidden sm:table-cell">
-                                    Technical Maintanance
+                                        Technical Maintanance
                                     </TableCell>
                                     <TableCell className="hidden sm:table-cell">
-                                    Engineer/Automation Maintannace
+                                        Engineer/Automation Maintannace
                                     </TableCell>
-                                   
+
                                     <TableCell className="text-right">
                                         <Dialog>
                                             <DialogTrigger asChild>
@@ -284,7 +285,151 @@ export default function Trainings() {
                                                 </DialogFooter>
                                             </DialogContent>
                                         </Dialog>
-                                       </TableCell>
+                                    </TableCell>
+                                </TableRow>
+
+                            </TableBody>
+                        </Table>
+                        <Pagination className="mt-4">
+                            <PaginationContent>
+                                <PaginationItem>
+                                    <PaginationPrevious href="#" />
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationLink href="#" isActive>1</PaginationLink>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationLink href="#" >
+                                        2
+                                    </PaginationLink>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationLink href="#">3</PaginationLink>
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationEllipsis />
+                                </PaginationItem>
+                                <PaginationItem>
+                                    <PaginationNext href="#" />
+                                </PaginationItem>
+                            </PaginationContent>
+                        </Pagination>
+                    </CardContent>
+                </Card>
+                <Card x-chunk="dashboard-05-chunk-3">
+                    <CardHeader className="px-7 flex flex-row justify-between">
+                        <div>
+                            <CardTitle>Training Schedules</CardTitle>
+                            <CardDescription>
+
+                            </CardDescription>
+
+                        </div>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button ><Plus /></Button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[1025px]">
+                                <DialogHeader>
+                                    <DialogTitle>Add Schedule</DialogTitle>
+                                    <DialogDescription>
+                                        Add schedule for upcoming events
+                                    </DialogDescription>
+                                </DialogHeader>
+                                <div className="grid gap-4 py-4">
+                                    <div className="grid grid-cols-4 items-center gap-2">
+                                        <Label htmlFor="name" className="text-right">
+                                            Course
+                                        </Label>
+                                        <Select >
+                                            <SelectTrigger className="col-span-3">
+                                                <SelectValue placeholder="Select an Event" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                    <SelectLabel>Event</SelectLabel>
+                                                    <SelectItem value="DCS">DCS ABB AC800 System</SelectItem>
+
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-2">
+                                        <Label htmlFor="username" className="text-right">
+                                            Date
+                                        </Label>
+                                        <DatePicker className="col-span-3" />
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-2">
+                                        <Label htmlFor="name" className="text-right">
+                                            Venue
+                                        </Label>
+                                        <Input className="col-span-3" placeholder="Enter a Venue" />
+                                    </div>
+
+                                </div>
+                                <DialogFooter>
+                                    <Button type="submit" >Add</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+
+                    </CardHeader>
+                    <CardContent>
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Section</TableHead>
+                                    <TableHead className="hidden sm:table-cell">
+                                        Title Course
+                                    </TableHead>
+                                    <TableHead className="hidden sm:table-cell">
+                                        Target Participant
+                                    </TableHead>
+                                    <TableHead className="hidden sm:table-cell">
+                                        Venue
+                                    </TableHead>
+
+                                    <TableHead className="text-right">Action</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                <TableRow className="bg-accent">
+                                    <TableCell>
+                                        <div className="font-medium"> Technical Maintanance</div>
+
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+
+                                        DCS ABB AC800 System
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        Engineer/Automation Maintannace
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">
+                                        Peranap
+                                    </TableCell>
+                                    <TableCell className="text-right">
+                                        <Dialog>
+                                            <DialogTrigger asChild>
+                                                <Button variant="none"><Trash width={18} /></Button>
+                                            </DialogTrigger>
+                                            <DialogContent className="sm:max-w-[425px]">
+                                                <DialogHeader>
+                                                    <DialogTitle>Delete</DialogTitle>
+                                                    <DialogDescription>
+                                                        Are you sure, you want to delete this post?
+                                                    </DialogDescription>
+                                                </DialogHeader>
+
+                                                <DialogFooter >
+
+                                                    <DialogClose> <Button type="submit">Cancel</Button></DialogClose>
+                                                    <Button variant="destructive" type="submit">Delete</Button>
+                                                </DialogFooter>
+                                            </DialogContent>
+                                        </Dialog>
+                                    </TableCell>
                                 </TableRow>
 
                             </TableBody>
@@ -328,23 +473,8 @@ export default function Trainings() {
 
                     </CardHeader>
                     <CardContent>
-                        <div className="flex flex-col">
-                            <Label className="mb-5">Add Event</Label>
-                            <div className="flex gap-5">
-                                <Input
-                                    id="name"
-                                    placeholder="Event Title"
-                                    className="w-[280px]"
-                                />
-
-
-
-                                <DatePicker />
-                                <Button className="w-[100px]">Add</Button>
-
-                            </div>
-                        </div>
-                        <Separator className="my-4" />
+                        
+                      
                         <div className="grid grid-row-2  gap-4">
                             <div className="flex items-center">
 
@@ -390,11 +520,12 @@ export default function Trainings() {
                                         onPrevMonth={handlePrevMonth}
                                         onNextMonth={handleNextMonth}
                                         selectedDate={selectedDate}
+                                        events={events}
 
                                     />
                                 </div>
                                 <div className="w-full lg:w-3/4 p-4">
-                                    <EventList events={events} selectedDate={selectedDate} />
+                                    <EventList events={events} currentMonth={currentMonth} selectedDate={selectedDate} />
                                 </div>
                             </div>
 

@@ -48,20 +48,23 @@ import {
 import { Input } from "@/components/ui/input"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
+import { Fade } from "react-awesome-reveal"
 
 
 export default function OurTraining() {
 
     return (
         <>
-            <Card className="overflow-hidden h-96 ">
-                <div className="overflow-hidden h-96 bg-[url('../home-img2.jpg')] bg-cover bg-center overflow-hidden transition ease-in-out hover:scale-105  ">
-                    {/* <b className="absolute inset-0">Breif Explenation</b> */}
+            <Fade direction="down" triggerOnce={true}>
+                <Card className="overflow-hidden h-96 ">
+                    <div className="overflow-hidden h-96 bg-[url('../home-img2.jpg')] bg-cover bg-center overflow-hidden transition ease-in-out hover:scale-105  ">
+                        {/* <b className="absolute inset-0">Breif Explenation</b> */}
 
-                </div>
-            </Card>
+                    </div>
+                </Card>
+            </Fade>
             <div className="grid grid-cols-2 p-10 gap-4">
-
+            <Fade direction="up" triggerOnce={true} className="col-span-2">
                 <Card className="flex flex-col items-center  col-span-2">
                     <CardHeader>
                         <CardTitle>Our Training Programs</CardTitle>
@@ -135,7 +138,7 @@ export default function OurTraining() {
                                     </DropdownMenuContent>
                                 </DropdownMenu>
 
-                                
+
                                 <div className="relative ml-auto flex-1 md:grow-0">
                                     <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                                     <Input
@@ -149,8 +152,8 @@ export default function OurTraining() {
                         </div>
 
                         <Card x-chunk="dashboard-05-chunk-3">
-                           
-                            
+
+
                             <CardContent>
                                 <Table>
                                     <TableHeader>
@@ -272,7 +275,7 @@ export default function OurTraining() {
                                                         <DialogFooter className="flex sm:justify-center">
                                                             <DialogClose asChild>
                                                                 <Button >Close</Button>
-                                                                </DialogClose>
+                                                            </DialogClose>
 
 
                                                         </DialogFooter>
@@ -280,7 +283,7 @@ export default function OurTraining() {
                                                 </Dialog>
                                             </TableCell>
                                         </TableRow>
-                                        
+
                                     </TableBody>
                                 </Table>
                             </CardContent>
@@ -313,6 +316,7 @@ export default function OurTraining() {
                         </Pagination>
                     </CardContent>
                 </Card>
+                </Fade>
             </div>
         </>
     )

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom"; import {
   Search,
   Newspaper,
   Users,
+  Image,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -30,6 +31,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 
 
@@ -42,10 +46,31 @@ export default function AdminLayout() {
             <Link to="/" className="flex items-center gap-2 font-semibold">
               <img src="../logo-april.png" width={100} />
             </Link>
-            <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell className="h-4 w-4" />
-              <span className="sr-only">Toggle notifications</span>
-            </Button>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
+                  <Bell className="h-4 w-4" />
+                  <span className="sr-only">Toggle notifications</span>
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-80">
+                <div className="grid gap-4">
+                  <div className="space-y-2">
+                    <h4 className="font-medium leading-none">Notification</h4>
+                    
+                  </div>
+                  <Separator/>
+                  <div className="grid gap-2">
+                    <div className="flex justify-between items-center gap-4">
+                      <Label htmlFor="width">New Post Updated</Label>
+                      <div className="text-xs text-gray-500" >4 Hours ago</div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
@@ -84,6 +109,13 @@ export default function AdminLayout() {
               >
                 <Building2 className="h-4 w-4" />
                 Facilities
+              </Link>
+              <Link
+                to="events-gallery"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <Image className="h-4 w-4" />
+                Event Gallery
               </Link>
             </nav>
           </div>
@@ -147,6 +179,13 @@ export default function AdminLayout() {
                   <Building2 className="h-5 w-5" />
                   Facilities
                 </Link>
+                <Link
+                  to="events-gallery"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <Image className="h-5 w-5" />
+                  Events Gallery
+                </Link>
               </nav>
 
             </SheetContent>
@@ -166,7 +205,9 @@ export default function AdminLayout() {
               <DropdownMenuSeparator />
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                window.location.href = "/login"
+              }}>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>

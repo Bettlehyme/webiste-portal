@@ -100,9 +100,9 @@ export default function Posts() {
                             </DialogTrigger>
                             <DialogContent className="sm:max-w-[1025px]">
                                 <DialogHeader>
-                                    <DialogTitle>Edit profile</DialogTitle>
+                                    <DialogTitle>Add Post</DialogTitle>
                                     <DialogDescription>
-                                        Make changes to your profile here. Click save when you're done.
+                                        add post for people to see in the website
                                     </DialogDescription>
                                 </DialogHeader>
                                 <div className="grid gap-4 py-4">

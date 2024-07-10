@@ -24,6 +24,7 @@ import { Login } from './pages/admin/login/Login'
 import Events from './pages/admin/dashboard/Events'
 import Trainings from './pages/admin/dashboard/Trainings'
 import Facilities from './pages/admin/dashboard/Facilities'
+import AdminEventsGallery from './pages/admin/dashboard/AdminEventsGallery'
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/admin/events" element={<Events />} />
           <Route path="/admin/trainings" element={<Trainings />} />
           <Route path="/admin/facilities" element={<Facilities />} />
+          <Route path="/admin/events-gallery" element={<AdminEventsGallery />} />
 
           {/* <Route path="settings" element={<Settings />} /> */}
         </Route>
