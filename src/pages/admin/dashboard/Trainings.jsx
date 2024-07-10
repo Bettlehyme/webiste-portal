@@ -88,6 +88,7 @@ import {
 } from "@/components/ui/popover"
 import DatePicker from "@/pages/component/DatePicker";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import TimePicker from "@/pages/component/TimePicker";
 
 export default function Trainings() {
     const [content, setContent] = useState('');
@@ -375,6 +376,12 @@ export default function Trainings() {
                                             Date
                                         </Label>
                                         <DatePicker className="col-span-3" />
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-2">
+                                        <Label htmlFor="username" className="text-right">
+                                            Time
+                                        </Label>
+                                        <TimePicker className="col-span-3" />
                                     </div>
                                     <div className="grid grid-cols-4 items-center gap-2">
                                         <Label htmlFor="name" className="text-right">
