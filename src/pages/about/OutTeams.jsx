@@ -5,11 +5,7 @@ import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const teams = {
-    organization: {
-        title: "Organization Chart",
-        content: "APRIL Group is a leading producer of renewable fiber and bio-based products, with forestry and manufacturing operations in Riau Province, Sumatra, Indonesia. The company is a business group of Singapore-headquartered global resources company, Royal Golden Eagle (RGE).",
 
-    },
     team1: {
         title: "Team 1",
         content: "APRIL Group is a leading producer of renewable fiber and bio-based products, with forestry and manufacturing operations in Riau Province, Sumatra, Indonesia. The company is a business group of Singapore-headquartered global resources company, Royal Golden Eagle (RGE).",
@@ -26,14 +22,17 @@ const teams = {
 
     },
 };
+const organization = {
+    title: "Organization Chart",
+    content: "APRIL Group is a leading producer of renewable fiber and bio-based products, with forestry and manufacturing operations in Riau Province, Sumatra, Indonesia. The company is a business group of Singapore-headquartered global resources company, Royal Golden Eagle (RGE).",
+    image: "../home-img2.jpg",
+};
 
-function changeValue(item) {
 
-}
 
 export default function OurTeams() {
     const [activeTeam, setActiveTeam] = useState('team1');
-
+    const [showOrganization, setShowOrganization] = useState(true);
     return (
         <>
             <Fade direction="down" triggerOnce={true}>
@@ -51,11 +50,27 @@ export default function OurTeams() {
                         <Card className="p-4">
                             <h2 className="text-xl font-semibold mb-4">Our Teams</h2>
                             <ul>
+                                <li className="mb-2">
+                                    <button
+                                        className={`w-full text-left hover:bg-gray-200 hover:text-black p-2 rounded-lg ${showOrganization ? 'bg-black text-white' : ''}`}
+                                        onClick={() => {
+                                            setShowOrganization(true);
+                                            setActiveTeam(null);
+                                        }}
+                                    >
+                                        {organization.title}
+                                    </button>
+                                </li>
                                 {Object.keys(teams).map(team => (
                                     <li key={team} className="mb-2">
                                         <button
                                             className={`w-full text-left hover:bg-gray-200 hover:text-black p-2 rounded-lg ${activeTeam === team ? 'bg-black text-white' : ''}`}
-                                            onClick={() => setActiveTeam(team)}
+                                            onClick={() => {
+                                                setActiveTeam(team);
+                                                setShowOrganization(false);
+                                            }
+                                            }
+
                                         >
                                             {teams[team].title}
                                         </button>
@@ -68,8 +83,17 @@ export default function OurTeams() {
                     <Fade direction="up" triggerOnce={true} className="w-3/4 ">
 
                         <Card className=" p-4">
-                            <h1 className="text-2xl font-semibold ">{teams[activeTeam].title}</h1>
-                            <div className="py-4 indent-4">{teams[activeTeam].content}</div>
+                            {showOrganization ? (
+                                <>
+                                    <h1 className="text-2xl font-semibold ">{organization.title}</h1>
+                                    <div className="py-4 indent-4 w-full rounded-md overflow-hidden"><img src={organization.image} className="w-full rounded-md"  /></div>
+                                </>
+                            ) : (
+                                <>
+                                    <h1 className="text-2xl font-semibold ">{teams[activeTeam].title}</h1>
+                                    <div className="py-4 indent-4">{teams[activeTeam].content}</div>
+                                </>
+                            )}
                         </Card>
                     </Fade>
                 </div>
