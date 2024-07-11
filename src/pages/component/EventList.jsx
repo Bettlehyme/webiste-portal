@@ -152,7 +152,7 @@ const EventList = ({ events, selectedDate, currentMonth }) => {
             dayEvents.map((event, index) => (
               <Dialog>
                 <DialogTrigger asChild>
-                  <div key={index} className="mb-4 p-2 rounded-md">
+                  <div key={index} className="mb-4 p-2 rounded-md hover:bg-gray-100">
                     <div className="font-bold">{event.time}</div>
                     <div>{event.title}</div>
                   </div>
